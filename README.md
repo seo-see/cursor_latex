@@ -1,22 +1,34 @@
+# 📘 LaTeX in Cursor / Cursor에서 LaTeX 사용하기
 
-# Cursor에서 LaTeX 사용하기
+> This guide explains how to set up and use LaTeX in [Cursor](https://www.cursor.sh/).  
+> 이 가이드는 [Cursor](https://www.cursor.sh/) 에디터에서 LaTeX 환경을 설정하고 사용하는 방법을 설명합니다.
 
-## 1. 준비 단계
+---
 
-### 1.1 확장 프로그램 설치
-- `LaTeX Workshop` 확장 프로그램 설치  
-  → LaTeX 문서 작성에 필요한 다양한 기능 제공
+## 🌐 Language | 언어
 
-### 1.2 LaTeX 배포판 설치
-- 다음 중 하나를 선택하여 설치:
-  - TeX Live
-  - MiKTeX
-  - MacTeX (Mac 사용자)
+- [🇺🇸 English Guide](#-english-guide)
+- [🇰🇷 한국어 가이드](#-한국어-가이드)
 
-### 1.3 기본 설정
-1. Cursor 설정에서 LaTeX Workshop 관련 옵션 확인 및 조정  
-2. `Shift+Command+P` → `Preferences: Open Settings (JSON)` 선택  
-3. 아래 코드를 중간에 삽입:
+---
+
+## 🇺🇸 English Guide
+
+### 1. Setup
+
+#### 1.1 Install Extension
+- Install the `LaTeX Workshop` extension  
+  → Provides useful LaTeX editing features
+
+#### 1.2 Install LaTeX Distribution
+Choose one:
+- [TeX Live](https://www.tug.org/texlive/)
+- [MiKTeX](https://miktex.org/)
+- [MacTeX](https://tug.org/mactex/) (Mac users)
+
+#### 1.3 Configure Cursor
+1. Open `Preferences: Open Settings (JSON)` (`Shift+Command+P`)  
+2. Add the following:
 
 ```json
 {
@@ -50,36 +62,38 @@
 
 ---
 
-## 2. LaTeX 문서 작성
+### 2. Writing LaTeX
 
-### 2.1 새 문서 만들기
-- `.tex` 확장자로 새 파일 생성
+#### 2.1 Create File
+- Create a new `.tex` file
 
-### 2.2 기본 문서 구조
-> (예시 문서 구조는 사용자가 필요에 따라 작성)
+#### 2.2 Example Structure
 
----
-
-## 3. 컴파일 및 BibTeX
-
-### 3.4 컴파일 순서
-- Make를 사용하여 컴파일 과정을 자동화  
-  → 자세한 내용은 [4. Makefile 사용하기](#4-makefile-사용하기) 참고
-
-### 3.5 Cursor에서 BibTeX 설정
-- Cursor에서 직접 BibTeX을 설정하는 대신, Makefile을 사용하여 컴파일 과정을 관리
+```latex
+\documentclass{article}
+\usepackage{xeCJK} % For Korean or CJK fonts
+\begin{document}
+Hello, LaTeX!
+\end{document}
+```
 
 ---
 
-## 4. Makefile 사용하기
+### 3. Compile & BibTeX
 
-### 4.1 Makefile 확인
-- 프로젝트 루트 디렉토리에 `Makefile`이라는 이름의 파일이 있는지 확인
+#### 3.1 Compilation Steps
+Use a Makefile to automate:
+
+#### 3.2 BibTeX
+Instead of configuring BibTeX inside Cursor, use a Makefile to manage everything.
+
+---
+
+### 4. Using Makefile
+
+#### 4.1 Sample Makefile
+
 ```makefile
-# 사용 방법:
-# make        : PDF 파일 생성
-# make clean  : 생성된 파일들 삭제
-
 .PHONY: all clean
 
 all: manuscript.pdf
@@ -94,17 +108,126 @@ clean:
 	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.synctex.gz *.pdf
 ```
 
-### 4.2 Makefile 사용하기
-- 터미널에서 다음 명령어 실행:
-  - PDF 생성: `make`
-  - 생성된 파일 삭제: `make clean`
+#### 4.2 Run in Terminal
+- Build PDF: `make`
+- Clean files: `make clean`
 
-### 4.3 Cursor에서 Makefile 사용
-1. Cursor에 `Task Explorer` 확장 프로그램 설치  
+#### 4.3 Use in Cursor
+1. Install `Task Explorer` extension  
+2. Open the Task Explorer from the sidebar  
+3. Run `make` or `make clean` with one click
+
+---
+
+## 🇰🇷 한국어 가이드
+
+### 1. 준비 단계
+
+#### 1.1 확장 프로그램 설치
+- `LaTeX Workshop` 확장 프로그램 설치  
+  → LaTeX 문서 작성을 위한 기능 제공
+
+#### 1.2 LaTeX 배포판 설치
+아래 중 하나 설치:
+- [TeX Live](https://www.tug.org/texlive/)
+- [MiKTeX](https://miktex.org/)
+- [MacTeX](https://tug.org/mactex/) (Mac 사용 시)
+
+#### 1.3 기본 설정
+1. `Shift+Command+P` → `Preferences: Open Settings (JSON)` 선택  
+2. 아래 내용 삽입:
+
+```json
+{
+  "latex.linter.enabled": false,
+  "[latex]": {
+    "editor.formatOnPaste": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix"
+  },
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": [
+        "xelatex"
+      ]
+    }
+  ]
+}
+```
+
+---
+
+### 2. LaTeX 문서 작성
+
+#### 2.1 새 문서 만들기
+- `.tex` 확장자로 파일 생성
+
+#### 2.2 문서 예시
+
+```latex
+\documentclass{article}
+\usepackage{xeCJK} % 한글 또는 CJK 폰트 사용
+\begin{document}
+안녕하세요, LaTeX!
+\end{document}
+```
+
+---
+
+### 3. 컴파일 및 BibTeX
+
+#### 3.1 컴파일 순서
+- Makefile을 사용하면 자동화 가능
+
+#### 3.2 BibTeX 설정
+- Cursor에서 직접 실행하기보다 Makefile로 관리하는 것을 추천
+
+---
+
+### 4. Makefile 사용하기
+
+#### 4.1 Makefile 예시
+
+```makefile
+.PHONY: all clean
+
+all: manuscript.pdf
+
+manuscript.pdf: manuscript.tex references.bib
+	xelatex manuscript.tex
+	bibtex manuscript
+	xelatex manuscript.tex
+	xelatex manuscript.tex
+
+clean:
+	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.synctex.gz *.pdf
+```
+
+#### 4.2 터미널에서 실행
+- PDF 생성: `make`
+- 파일 삭제: `make clean`
+
+#### 4.3 Cursor에서 실행
+1. `Task Explorer` 확장 프로그램 설치  
 2. 사이드바에서 Task Explorer 아이콘 클릭  
-3. Makefile 태스크가 자동으로 인식되어 표시됨  
-4. `make` 태스크 클릭 → PDF 생성  
-5. `make clean` 태스크 클릭 → 생성된 파일 삭제
+3. `make`, `make clean` 태스크를 클릭하여 실행
 
-## Question
-If you have any questions, contact me at ([cacaowhite@g.skku.edu](mailto:cacaowhite@g.skku.edu))
+---
+
+## 📬 Contact
+
+If you have any questions, feel free to reach out:  
+문의사항이 있으시면 언제든지 연락 주세요:  
+**[cacaowhite@g.skku.edu](mailto:cacaowhite@g.skku.edu)**
