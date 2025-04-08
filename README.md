@@ -226,8 +226,22 @@ clean:
 
 ---
 
+
+---
+
+## ⚖️ Ethical Considerations / 윤리적 고려사항
+
+> This guide includes the use of AI tools such as Copilot and Cursor.  
+> These tools are intended to assist in formatting, writing, and document preparation.  
+> All scientific content, citations, and conclusions must be verified and validated by the human author.
+
+> 이 가이드는 Copilot, Cursor와 같은 AI 도구의 사용을 포함합니다.  
+> 이러한 도구는 문서 작성 및 형식을 지원하기 위한 보조 수단입니다.  
+> 모든 학술적 내용, 인용, 결론에 대한 최종 검토와 책임은 인간 저자에게 있습니다.
+
+
 ## 📬 Contact
 
-If you have any questions, feel free to reach out:  
-문의사항이 있으시면 언제든지 연락 주세요:  
+If you have any questions, feel free to reach out!
+문의사항이 있으시면 언제든지 연락 주세요!
 **[cacaowhite@g.skku.edu](mailto:cacaowhite@g.skku.edu)**
