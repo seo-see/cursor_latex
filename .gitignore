@@ -1,0 +1,42 @@
+# LaTeX 관련 파일
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.dvi
+
+# BibTeX 관련 파일
+*.bbl
+*.blg
+
+# 기타 LaTeX 중간 파일
+*.nav
+*.snm
+*.vrb
+
+# PDF 출력 파일 (선택적)
+*.pdf
+
+# LaTeX 편집기 임시 파일
+*.tex~
+
+# Git 관련 파일
+.git/
+.gitattributes
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 편집기 관련 파일
+.vscode/
+.idea/
+*.swp
+*~

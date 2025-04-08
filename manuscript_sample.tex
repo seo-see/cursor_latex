@@ -1,0 +1,212 @@
+\documentclass{article}
+\usepackage{tikz}  % TikZ 패키지 사용
+\usepackage{float} % [H] 옵션을 사용하기 위한 패키지
+\usepackage{setspace}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{apalike}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{fontspec}  % XeLaTeX 또는 LuaLaTeX에서 한글 폰트를 설정하기 위해 필요
+\setmainfont{NanumGothic}  % 사용 가능한 한글 폰트로 설정 (시스템에 설치된 폰트여야 함)
+\usepackage{geometry}
+
+\geometry{
+  a4paper,         % 용지 크기
+  left=2.5cm,      % 왼쪽 여백
+  right=2.5cm,     % 오른쪽 여백
+  top=2.0cm,       % 위쪽 여백
+  bottom=2.0cm     % 아래쪽 여백
+}
+
+% chktex 오류 해결m
+% "latex.linter.enabled": false,
+% 위 코드를 settings.json에 추가하면 됨
+
+\title{title}
+\author{학번 이름}
+\date{2024.10.09}
+\begin{document}
+\onehalfspacing  % 문서 전체에 두 줄 간격 적용
+\maketitle
+
+\section{서론}
+
+뇌졸중은 대한민국의 주요 사망 원인 중 하나로, 대한민국의 뇌졸중 발생률은 인구 10만명 당 약 200건에 달한다\cite{KOSIS}. 
+뇌손상은 이러한 뇌졸중을 포함하는 병적인 상태로 외상성 뇌손상, 비외상성 뇌손상으로 분류된다\cite{giustini2013traumatic}.
+비외상성 뇌손상은 뇌졸중, 뇌종양 등 원인에 따라 각기 다른 기전으로 뇌 조직이 손상되며 이로 인해 환자들은 다양한 증상을 경험하게 된다.
+운동 기능 장애로 인한 마비나 근력 약화, 감각 기능 저하, 인지 능력 감소, 언어 장애 등이 주요 증상이며 손상 위치나 범위에 따라 다양한 증상을 유발한다.
+
+이 때문에 뇌손상 환자 간병은 매우 어렵고 복잡하다.
+특히 뇌졸중은 갑자기 발생하여 보호자는 준비 없이 역할을 맞게 된다\cite{lutz2011crisis}.
+또한 뇌손상 환자들은 대부분 발생부터 오랜 재활기간을 포함하는 장기적이고 집중적인 돌봄이 필요하며,이는 보호자에게 상당한 부담을 준다.
+보호자는 일상생활 지원부터 투약 관리까지 다양한 역할 수행이 요구되며, 이는 전문 지식과 기술, 그리고 끊임없는 인내와 헌신을 필요로 한다\citep{camak2015addressing}.
+
+이러한 복합적인 부담으로 인해 보호자의 삶의 질이 현저히 저하된다. 다수의 연구에서 뇌졸중 환자의 보호자가 스트레스, 불안, 우울을 경험할 수 있다고 보고하였다\cite{denno2013anxiety,greenwood2010exploratory}.
+더불어, Camak과 Deborah(2015)에 따르면 보호자들 또한 다양한 건강 관련 요구를 가지고 있는 것으로 나타났다\cite{camak2015addressing}.
+
+따라서 뇌졸중을 포함한 다양한 뇌손상 환자의 보호자 대한 삶의 질 평가와 국가적 차원의 부담 경감 정책이 필요하다.
+이는 보호자의 삶의 질 향상과 환자 돌봄의 질 개선에 도움이 될 것이며, 보호자의 사회 복귀와 경제활동 참여로 국가 경제에도 긍정적 영향을 미칠 수 있다. 
+본 연구에서는 뇌졸중뿐만 아니라 다양한 유형의 뇌손상 환자 보호자의 삶의 질 측정 도구를 탐색하고자 한다. 이를 통해 보다 포괄적이고 일반화 가능한 연구 결과를 도출할 수 있을 것으로 기대된다.
+
+\section{문헌고찰}
+% 여기에 문헌고찰 내용을 추가하세요
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance=2cm]
+        \node (A) [rectangle, draw] {삶의 질};
+        \node (B) [rectangle, draw, below of=A] {보호자의 삶의 질};
+        \node (C) [rectangle, draw, below of=B] {뇌손상 환자 보호자의 삶의 질};
+        
+        \draw [->] (A) -- (B);
+        \draw [->] (B) -- (C);
+    \end{tikzpicture}
+    \caption{삶의 질 개념도}
+    \label{fig:qol_diagram}
+\end{figure}
+
+그림 1에 제시된 과정에 따라 PubMed를 활용하여 체계적인 문헌고찰을 수행했다. 다음과 같은 검색어와 조합으로 검색 전략을 수립했으며, 탐색한 논문의 참고문헌을 추가로 검토하는 과정을 거쳤다. 이를 통해 연구를 위한 이론적 기틀을 수립하였다.
+
+\begin{enumerate}
+    \item 삶의 질
+    \begin{itemize}
+        \item "Quality of Life"[MeSH Terms] OR QoL[Title/Abstract] OR "Quality of Life"[Title/Abstract]
+    \end{itemize}
+    
+    \item 보호자의 삶의 질
+    \begin{itemize}
+        \item (caregiver[MeSH Terms] OR caregiver[Title/Abstract]) AND ("Quality of Life"[MeSH Terms] OR QoL[Title/Abstract] OR "Quality of Life"[Title/Abstract])
+    \end{itemize}
+    
+    \item 뇌손상 환자 보호자의 삶의 질
+    \begin{itemize}
+        \item ((caregiver[MeSH Terms] OR caregiver[Title/Abstract]) AND ("Quality of Life"[MeSH Terms] OR QoL[Title/Abstract] OR "Quality of Life"[Title/Abstract]) AND (Brain[MeSH Terms] OR Brain[Title/Abstract]))
+    \end{itemize}
+\end{enumerate}
+
+\subsection{삶의질}
+삶의 질(Quality of Life, QoL)은 개인의 전반적인 웰빙과 만족도를 나타내는 지표이다.
+세계보건기구(WHO)는 삶의 질을 "개인이 자신의 문화와 가치관 속에서 삶의 목표, 기대, 관심사에 비추어 자신의 상태를 인식하는 정도"로 정의하고 삶의 질 도구를 통해 측정하고자 하였다\cite{whoqol1995world}.
+이 도구에서는 다면적인 삶의 질을 평가하기 위해 6가지 주요 영역 (신체적 영역,심리적 영역, 독립성 수준, 사회적 관계, 환경, 영성/종교/개인적 신념)을 제시하고 있다.
+
+WHO의 정의는 삶의 질이 단순히 건강 상태나 물질적 풍요로움만을 의미하는 것이 아니라, 
+개인의 가치관과 문화적 맥락 안에서 형성되는 주관적인 인식임을 강조한다. 이는 삶의 질 
+평가에 있어 개인의 고유한 경험과 기대를 중요하게 고려해야 함을 시사한다.
+
+삶의 질 도구의 활용은 임상 시험에서 개인의 건강 상태 평가, 의사결정에 도움, 예후의 지표 확인 등 다양한 형태로 사용된다 \cite{fallowfield2009quality}.
+또한 인구 집단의 삶의 질을 모니터링하고 정책의 효과를 평가하는 데에도 사용된다\cite{diener1997measuring, hagerty2001quality}.
+이러한 도구의 활용은 개인의 건강 뿐만 아니라 사회의 삶의 질 향상을 위한 중요한 기초 자료를 제공한다.
+
+
+\subsection{보호자의 삶의 질}
+보호자의 삶의 질은 일반적인 삶의 질과는 구별되는 특수한 개념이다. Martin 등(2021)는
+"보호자의 삶의 질은 사랑하는 사람의 개인적 필요, 집안일, 그리고 기타 일상생활 활동을 돕는 특정 맥락 내에서 존재하는 반면, 일반적인 삶의 질은 모든 생활 상황, 역할, 또는 문제에서 비롯된다"고 설명했다\cite{martin2021caregiver}.
+이는 보호자의 삶의 질이 간병 활동과 밀접하게 연관되어 있음을 시사한다.
+
+이전에도 보호자의 부담감을 측정하는 도구가 있었지만, 이러한 도구들은 시간적, 정신적, 신체 사회적 부담과 같은 주로 간병에 대한 부정적인 측면에 초점을 맞추었다\cite{uhm2021reliability,bedard2001zarit}.
+그러나 이러한 접근은 보호자 경험의 전체적인 모습을 포착하지 못한다는 한계가 있다. 보호자는 간병의 부담을 겪는 동시에 가족 간 유대감 강화, 의무감 충족, 개인적 성장 등의 긍정적인 경험을 할 수 있다\cite{glozman2004quality}.
+따라서 간병인 부담 척도보다는 간병에 대해 더 중립적인 태도를 가진 삶의 질 도구를 통해 간병의 다면적인 특성을 모두 조망할 필요가 있다.
+이러한 맥락에서, 보호자의 삶의 질을 평가하는 도구는 부정적인 측면뿐만 아니라 긍정적인 측면도 함께 고려해야 한다.
+이를 통해 보호자의 경험을 더욱 포괄적으로 이해하고, 그들의 삶의 질을 향상시키기 위한 효과적인 지원 방안을 마련할 수 있을 것이다.
+
+
+
+\subsection{뇌손상 환자 보호자의 삶의 질}
+뇌손상 환자 보호자의 삶의 질은 일반적인 보호자의 삶의 질보다 더 복잡하고 다차원적인 개념이다. 여러 선행 연구에서 뇌손상 환자 보호자의 부담이 상당히 크다는 점이 강조되어 왔다.
+뇌손상(Acquired Brain Injury; ABI)은 크게 외상성 뇌손상(Traumatic Brain Injury; TBI)과 비외상성 뇌손상(Non-Traumatic Brain Injury; NTBI)으로 분류된다\cite{giustini2013traumatic}. 
+TBI는 교통사고, 낙상, 폭력 등 외부 충격으로 발생하는 반면, NTBI는 뇌졸중, 뇌종양, 감염, 저산소증 등 내부 요인으로 인해 발생한다.
+두 유형 모두 환자의 인지, 행동, 정서 기능에 심각한 영향을 미치며, 이는 보호자의 부담을 크게 가중시킬 수 있다
+williams 등(1993)에 따르면, 뇌졸중 환자의 보호자는 보행 보조나 들어올리기 같은 신체적 요구뿐만 아니라 언어, 인지, 감정 표현, 판단력 등의 문제로 인한 정신적 부담도 상당할 수 있다고 하였다\cite{williams1993caregivers}.
+더불어, Carlozzi 등(2015)의 연구에서는 TBI 환자 보호자의 삶의 질이 일반 인구에 비해 현저히 낮다는 결과를 제시했다\cite{carlozzi2015health}.
+이러한 연구 결과들은 뇌손상 환자 보호자의 삶의 질을 평가할 때, 일반적인 삶의 질 도구와 더불어 뇌손상 환자 돌봄과 관련된 특정 요인들을 포함하는 전문화된 도구를 함께 사용해야 할 필요성을 시사한다.
+따라서 뇌손상 환자 보호자의 삶의 질을 정확히 평가하기 위해서는 일반적인 삶의 질 요소뿐만 아니라 뇌손상 환자 돌봄의 특수성을 반영하는 요인들,
+예를 들어 인지 기능 저하로 인한 의사소통의 어려움, 행동 변화에 대한 대처, 장기적인 재활 과정에서의 정서적 부담 등을 종합적으로 고려해야 할 것이다.
+
+
+\section{본론}
+문헌고찰을 통해 뇌손상 환자 보호자의 삶의 질을 평가하기 위한 3개의 주요 도구를 선별하였다. 이 선별 과정에는 대학병원 신경외과 중환자실에서 3년 이상의 임상 경험을 보유한 전문가가 참여하여 도구의 적합성과 실용성을 면밀히 검토하였다. 선정된 도구들은 모두 뇌손상 환자의 보호자를 대상으로 하지는 않지만, 추후 도구 개발을 위한 참고 자료로 활용 가능한 것들도 함께 정리하였다.
+
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        \textbf{도구명} & \textbf{개발자} & \textbf{연도} & \textbf{주요 특징} & \textbf{대상} \\ \hline
+        Quality of Life in Life-Threatening & Cohen 등 & 2006 & 환경, 보호자의 상태, 보호자의 전망, & 생명을 위협하는 질병을 가진 \\
+        Illness-Family Carer Version (QOLLTI-F)\cite{cohen2006qollti} & & & 돌봄의 질, 관계, 환자의 상태, & 환자의 가족 보호자 \\
+        & & & 재정 7개 영역 평가 & \\ \hline
+        Quality of Life after Brain Injury & von Steinbüchel 등 & 2010 & 인지 기능, 감정과 자아상, 일상생활 & TBI를 경험한 환자 \\
+        (QOLIBRI)\cite{von2010quality} & & & 독립성과 기능, 사회적 관계, & \\
+        & & & 감정적 문제, 신체적 문제 6개 영역 평가 & \\ \hline
+        TBI-CareQOL\cite{carlozzi2019tbi} & Carlozzi 등 & 2019 & 10개의 기존 PROMIS 도구와 5개의 & TBI 환자의 보호자 \\
+        & & & 보호자 특화 측정도구로 이루어짐 & \\ \hline
+    \end{tabular}%
+    }
+    \caption{삶의 질 평가 도구 비교}
+    \label{table:qol_tools}
+\end{table}
+
+\subsection{도구 소개}
+
+
+\subsubsection{Quality of Life in Life-Threatening Illness-Family Carer Version (QOLLTI-F)}
+QOLLTI-F는 생명을 위협하는 질병을 가진 환자의 가족 보호자를 대상으로 개발된 도구이다. 이 도구는 다음 7개의 주요 영역을 평가한다
+
+- 환경: 보호자의 물리적 및 사회적 환경
+
+- 보호자의 상태: 신체적, 정신적 건강 상태
+
+- 보호자의 전망: 미래에 대한 인식과 기대
+
+- 돌봄의 질: 제공하는 돌봄에 대한 만족도
+
+- 관계: 환자 및 다른 가족 구성원과의 관계
+
+- 환자의 상태: 환자의 건강 상태와 안녕
+
+- 재정: 경제적 상황과 부담
+
+QOLLTI-F는 생명을 위협하는 질병을 가진 환자의 보호자를 대상으로 하지만, 뇌손상 환자 보호자에게도 적용 가능한 많은 요소를 포함하고 있다. 그러나 뇌손상 특유의 인지 및 행동 변화로 인한 보호자의 스트레스나 부담을 세부적으로 평가하기에는 한계가 있다. 따라서 QOLLTI-F를 기반으로 하되, 뇌손상 환자 보호자의 특수한 경험을 반영할 수 있는 추가적인 항목이나 수정이 필요할 것이다.
+
+\subsubsection{Quality of Life after Brain Injury (QOLIBRI)}
+QOLIBRI는 외상성 뇌손상(TBI) 환자를 대상으로 개발된 삶의 질 평가 도구이다. 이 도구는 6개의 주요 영역을 평가하며, 각 영역은 TBI 환자들이 경험하는 특정 문제와 관련이 있다. QOLIBRI의 주요 특징은 TBI 후 삶의 질에 영향을 미치는 인지적, 정서적, 기능적 측면을 포괄적으로 다룬다는 점이다.
+
+QOLIBRI는 다음 6개의 주요 영역을 평가한다
+
+- 인지 기능: 기억력, 집중력, 의사결정 능력 등
+
+- 감정과 자아상: 자존감, 동기부여, 외모에 대한 인식 등
+
+- 일상생활 독립성과 기능: 개인위생, 이동성, 일상 활동 수행 능력 등
+
+- 사회적 관계: 가족, 친구, 연인과의 관계 등
+
+- 감정적 문제: 우울, 불안, 분노 조절 등
+
+- 신체적 문제: 통증, 피로, 수면 장애 등
+
+QOLIBRI는 TBI 환자의 삶의 질을 포괄적으로 평가하는 데 유용하지만, 뇌손상 환자 보호자의 삶의 질 측정에는 직접적으로 적용하기 어렵다. 그러나 이 도구의 구조와 평가 영역은 보호자용 도구 개발에 중요한 통찰을 제공할 수 있다. 특히 인지 기능, 감정적 문제, 사회적 관계 등의 영역은 보호자의 경험과도 밀접하게 연관되어 있으므로, 이를 바탕으로 보호자 중심의 평가 항목을 개발할 수 있을 것이다.
+
+\subsubsection{TBI-CareQOL}
+TBI-CareQOL은 외상성 뇌손상(TBI) 환자의 보호자를 위해 특별히 개발된 삶의 질 측정 시스템이다. 이 도구는 기존의 PROMIS(Patient-Reported Outcomes Measurement Information System) 도구 10개와 TBI 보호자에 특화된 5개의 측정도구로 구성되어 있다. TBI-CareQOL은 보호자의 신체적, 정신적 건강뿐만 아니라 TBI 환자를 돌보는 과정에서 겪는 특수한 어려움을 포괄적으로 평가한다.
+
+TBI-CareQOL의 주요 특징은 다음과 같다
+
+- 포괄적 평가: 보호자의 신체적, 정신적 건강뿐만 아니라 사회적, 경제적 영향까지 광범위하게 평가한다.
+
+- TBI 특화: TBI 환자 보호의 특수성을 반영한 문항들을 포함하여, 보호자가 겪는 고유한 어려움을 정확히 측정한다.
+
+- PROMIS 활용: 10개의 PROMIS 도구를 포함함으로써, 검증된 측정 방식을 통해 보호자의 건강 관련 삶의 질을 평가한다.
+
+TBI-CareQOL은 또한 보호자의 삶의 질에 영향을 미치는 다양한 요인들을 세부적으로 분석할 수 있게 해준다. 이는 보호자 지원 프로그램의 개발과 개선에 중요한 정보를 제공할 수 있다. 더불어, 이 도구를 통해 얻은 데이터는 의료진이 보호자의 필요를 더 잘 이해하고, 맞춤형 지원을 제공하는 데 도움이 될 수 있다.
+
+\section{결론}
+뇌손상 환자의 상태와 보호자의 상호작용을 종합적으로 고려한 삶의 질 측정도구가 필요하다. 이러한 도구는 환자의 신체적, 인지적, 정서적 상태뿐만 아니라 보호자의 부담감, 스트레스 수준, 그리고 환자-보호자 간의 관계 역동성을 포괄적으로 평가해야 한다. 또한, 뇌손상의 특성상 장기적인 관리가 필요하므로, 시간에 따른 변화를 종단적으로 측정할 수 있어야 한다. 도구 개발 시 이러한 관점을 반드시 고려해야 한다. 이러한 통합적 접근은 환자와 보호자 모두의 삶의 질 향상을 위한 더 효과적인 중재 전략 수립에 기여할 수 있을 것이다.
+
+% 여기에 참고문헌을 추가하세요
+\bibliographystyle{unsrt}
+\bibliography{references}  % .bib 파일이 있는 폴더를 경로로 포함
+
+
+\end{document}
